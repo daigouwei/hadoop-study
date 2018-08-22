@@ -18,8 +18,8 @@ public class LogMapper extends Mapper<Object, Text, Text, Text> {
 
     @Override
     public void map(Object key, Text value, Context context) throws IOException, InterruptedException {
-        LogSplitBean logSplitBean = LogParser.parseLog(value);
-        if (null != logSplitBean) {
+        LogSplitBean logSplitBean = LogParser.parseLog(value.toString());
+        if (null == logSplitBean) {
             logger.info("logSplitBean=null, value=" + value.toString() + "没能解析出来");
             return;
         }

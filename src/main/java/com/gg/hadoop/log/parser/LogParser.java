@@ -10,10 +10,10 @@ import java.util.regex.Pattern;
  * Created by guowei on 2018/8/22.
  */
 public class LogParser {
-    public static LogSplitBean parseLog(Text data) {
+    public static LogSplitBean parseLog(String data) {
         Matcher matcher = Pattern.compile(
-                "(.*?)\\s(.*?)\\s(.*?)\\s\\[(.*?)\\]\\s\"(.*?)\"\\s([0-9]{3})\\s([0-9]+?)\\s\"(.*?)\"\\s\"(.*?)\"\\s\"(.*?)\"\\s\"pid=(.*?)\\sse=(.*?)\\scpid=(.*?)\\sajax=(.*?)\\sup=(.*?)\\sab=(.*?)\\suptime=(.*?)\\sreqtime=(.*?)\"\\s\"head_pre1=(.*?)\"\\s\"(.*?)\"\\s+?\"(.*?)\"\\sclientip=(.*)")
-                .matcher(data.toString());
+                "(.*?)\\s(.*?)\\s(.*?)\\s\\[(.*?)\\]\\s\"(.*?)\"\\s([0-9]{3})\\s([0-9]+?)\\s\"(.*?)\"\\s\"(.*?)\"\\s\"(.*?)\"\\s\"pid=(.*?)\\sse=(.*?)\\scpid=(.*?)\\sajax=(.*?)\\sup=(.*?)\\sab=(.*?)\"\\s\"head_pre1=(.*?)\"\\s\"(.*?)\"")
+                .matcher(data);
         while (matcher.find()) {
             String ip = matcher.group(1);
             String unknow1 = matcher.group(2);
@@ -31,12 +31,8 @@ public class LogParser {
             String ajax = matcher.group(14);
             String up = matcher.group(15);
             String ab = matcher.group(16);
-            String uptime = matcher.group(17);
-            String reqtime = matcher.group(18);
-            String headPre1 = matcher.group(19);
-            String urlPrefix = matcher.group(20);
-            String unknow4 = matcher.group(21);
-            String ip2 = matcher.group(22);
+            String headPre1 = matcher.group(17);
+            String urlPrefix = matcher.group(18);
             //暂时返回必要的属性，可选属性可以后续添加
             return new LogSplitBean.Builder(ip, time, agent, responseStatusCode, ref, pid, cpid).build();
         }

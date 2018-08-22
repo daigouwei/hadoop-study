@@ -13,15 +13,16 @@ import java.util.List;
 /**
  * Created by guowei on 2018/8/22.
  */
-public class LogReduce extends Reducer<Text, Text, Text, ArrayWritable> {
+public class LogReducer extends Reducer<Text, Text, Text, Text> {
     private static final Logger logger = LoggerFactory.getLogger(LogMapper.class);
 
     @Override
     public void reduce(Text key, Iterable<Text> values, Context context) throws IOException, InterruptedException {
-        List<String> valueList = new ArrayList<String>();
+        String str = "";
         for (Text value : values) {
-            valueList.add(value.toString());
+           str += "##"+ value.toString();
         }
-        context.write(key, new ArrayWritable((String[]) valueList.toArray()));
+        str = str.substring(2);
+        context.write(key, new Text(str));
     }
 }

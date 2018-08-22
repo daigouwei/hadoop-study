@@ -24,8 +24,6 @@ public class LogSplitBean {
     private String reqtime;
     private String headPre1;
     private String urlPrefix;
-    private String unknow4;
-    private String ip2;
 
     public static class Builder {
         //必要属性
@@ -37,21 +35,19 @@ public class LogSplitBean {
         private String pid;
         private String cpid;
         //可选属性
-        private String unknow1 = "";
-        private String unknow2 = "";
-        private String byteNum = "";
-        private String browserInfo = "";
-        private String unknow3 = "";
-        private String se = "";
-        private String ajax = "";
-        private String up = "";
-        private String ab = "";
-        private String uptime = "";
-        private String reqtime = "";
-        private String headPre1 = "";
-        private String urlPrefix = "";
-        private String unknow4 = "";
-        private String ip2 = "";
+        private String unknow1;
+        private String unknow2;
+        private String byteNum;
+        private String browserInfo;
+        private String unknow3;
+        private String se;
+        private String ajax;
+        private String up;
+        private String ab;
+        private String uptime;
+        private String reqtime;
+        private String headPre1;
+        private String urlPrefix;
 
         public Builder(String ip, String time, String agent, String responseStatusCode, String ref, String pid,
                 String cpid) {
@@ -126,16 +122,6 @@ public class LogSplitBean {
 
         public Builder urlPrefix(String val) {
             this.urlPrefix = val;
-            return this;
-        }
-
-        public Builder unknow4(String val) {
-            this.unknow4 = val;
-            return this;
-        }
-
-        public Builder ip2(String val) {
-            this.ip2 = val;
             return this;
         }
 
@@ -307,22 +293,6 @@ public class LogSplitBean {
         this.urlPrefix = urlPrefix;
     }
 
-    public String getUnknow4() {
-        return unknow4;
-    }
-
-    public void setUnknow4(String unknow4) {
-        this.unknow4 = unknow4;
-    }
-
-    public String getIp2() {
-        return ip2;
-    }
-
-    public void setIp2(String ip2) {
-        this.ip2 = ip2;
-    }
-
     private LogSplitBean(Builder builder) {
         this.ip = builder.ip;
         this.time = builder.time;
@@ -344,18 +314,31 @@ public class LogSplitBean {
         this.reqtime = builder.reqtime;
         this.headPre1 = builder.headPre1;
         this.urlPrefix = builder.urlPrefix;
-        this.unknow4 = builder.unknow4;
-        this.ip2 = builder.ip2;
     }
 
     @Override
     public String toString() {
-        return "LogSplitBean{" + "ip='" + ip + '\'' + ", unknow1='" + unknow1 + '\'' + ", unknow2='" + unknow2 + '\''
-                + ", time='" + time + '\'' + ", agent='" + agent + '\'' + ", responseStatusCode='" + responseStatusCode
-                + '\'' + ", byteNum='" + byteNum + '\'' + ", ref='" + ref + '\'' + ", browserInfo='" + browserInfo
-                + '\'' + ", unknow3='" + unknow3 + '\'' + ", pid='" + pid + '\'' + ", se='" + se + '\'' + ", cpid='"
-                + cpid + '\'' + ", ajax='" + ajax + '\'' + ", up='" + up + '\'' + ", ab='" + ab + '\'' + ", uptime='"
-                + uptime + '\'' + ", reqtime='" + reqtime + '\'' + ", headPre1='" + headPre1 + '\'' + ", urlPrefix='"
-                + urlPrefix + '\'' + ", unknow4='" + unknow4 + '\'' + ", ip2='" + ip2 + '\'' + '}';
+        return "LogSplitBean{" +
+                "ip='" + ip + '\'' +
+                ", unknow1='" + unknow1 + '\'' +
+                ", unknow2='" + unknow2 + '\'' +
+                ", time='" + time + '\'' +
+                ", agent='" + agent + '\'' +
+                ", responseStatusCode='" + responseStatusCode + '\'' +
+                ", byteNum='" + byteNum + '\'' +
+                ", ref='" + ref + '\'' +
+                ", browserInfo='" + browserInfo + '\'' +
+                ", unknow3='" + unknow3 + '\'' +
+                ", pid='" + pid + '\'' +
+                ", se='" + se + '\'' +
+                ", cpid='" + cpid + '\'' +
+                ", ajax='" + ajax + '\'' +
+                ", up='" + up + '\'' +
+                ", ab='" + ab + '\'' +
+                ", uptime='" + uptime + '\'' +
+                ", reqtime='" + reqtime + '\'' +
+                ", headPre1='" + headPre1 + '\'' +
+                ", urlPrefix='" + urlPrefix + '\'' +
+                '}';
     }
 }
