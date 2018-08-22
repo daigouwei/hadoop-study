@@ -61,7 +61,7 @@ public class WordCount {
     }
 
     public static void main(String[] args) throws Exception {
-        System.setProperty("hadoop.home.dir","D:/hadoop_home");
+//        System.setProperty("hadoop.home.dir","/usr/local/hadoop/hadoop2");
         //增加log4j的日志
         PropertyConfigurator.configure("src/main/resources/config/log4j.properties");
         Configuration conf = new Configuration();

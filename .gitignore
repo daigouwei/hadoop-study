@@ -2,6 +2,7 @@
 .idea
 *.iml
 target
+output
 
 # Compiled class file
 *.class
