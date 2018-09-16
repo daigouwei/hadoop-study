@@ -23,7 +23,7 @@ public class LogWorker {
         //增加log4j的日志
         PropertyConfigurator.configure("src/main/resources/config/log4j.properties");
         Configuration conf = new Configuration();
-        Job job = new Job(conf, "word count");
+        Job job = new Job(conf, "log");
         job.setJarByClass(LogWorker.class);
         job.setMapperClass(LogMapper.class);
         //        job.setCombinerClass(LogReducer.class);
