@@ -16,6 +16,16 @@ import java.util.List;
  */
 public class PartialMultiplyMapper
         extends Mapper<IntWritable, VectorAndPrefsWritable, VarLongWritable, VectorWritable> {
+    /**
+     * 输入：key为物品ID，对应的是VectorAndPrefsWritable里面封装好了某物品对应的共现矩阵列和全部用户ID及对应的偏好
+     * 输出：key为用户ID，得到针对某物品的共现矩阵乘物品偏好
+     *
+     * @param key
+     * @param vectorAndPrefsWritable
+     * @param context
+     * @throws IOException
+     * @throws InterruptedException
+     */
     @Override
     public void map(IntWritable key, VectorAndPrefsWritable vectorAndPrefsWritable, Context context)
             throws IOException, InterruptedException {
